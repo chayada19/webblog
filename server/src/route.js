@@ -2,7 +2,7 @@ const UserController = require('./controllers/UserController')
 
 module.exports = (app) => {
      // get user by id
-     app.get('/user',UserController.index)
+     app.get('/users',UserController.index)
 
     // create user
     app.post('/user',UserController.create)

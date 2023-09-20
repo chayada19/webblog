@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 require('./route')(app)
 
 app.get('/status', function (req, res){
-  res.send('Hello nodejs server belong to me!')
+  res.send('Hello nodejs server belong to chayada')
 })
 
 app.get('/hello/:name', function (req, res) {
@@ -22,8 +22,9 @@ app.get('/hello/:name', function (req, res) {
 
 
 let port = process.env.PORT || config.port
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(port,function(){
     console.log('server running on ' + port)
-})
+   })
 })
