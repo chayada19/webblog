@@ -11,8 +11,13 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 require('./route')(app)
 
+<<<<<<< HEAD
 app.get('/status', function (req, res){
   res.send('Hello nodejs server belong to chayada')
+=======
+app.get('/status', function (req,res){
+    res.send('Hello nodejs server belong to Chayada')
+>>>>>>> 6de11ab737b4006fd6389b650043f5cd4118338d
 })
 
 app.get('/hello/:name', function (req, res) {
