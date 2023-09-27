@@ -1,24 +1,18 @@
 let express = require('express')
 let bodyParser = require('body-parser')
 const {sequelize} = require('./models')
-
+let cors = require('cors')
 const config = require('./config/config')
 
 const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(cors())
 
 require('./route')(app)
 
-<<<<<<< HEAD
-app.get('/status', function (req, res){
-  res.send('Hello nodejs server belong to chayada')
-=======
-app.get('/status', function (req,res){
-    res.send('Hello nodejs server belong to Chayada')
->>>>>>> 6de11ab737b4006fd6389b650043f5cd4118338d
-})
+
 
 app.get('/hello/:name', function (req, res) {
   console.log('Hello - ' + req.params.name)
