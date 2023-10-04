@@ -13,6 +13,7 @@
             <div><button v-on:click="navigateTo('/user/' + i.id)">ดูข้อมูลผู้ใช้</button></div>
             <div><button @click="navigateTo('/user/edit/' + i.id)">edit user</button></div>
             <div><button @click="deleteUser(i)">delete user</button></div>
+            <div><button v-on:click="logout">Logout</button></div>
             <hr>
         </div>
     </div>
@@ -28,6 +29,15 @@ export default {
         };
     },
     methods: {
+
+        logout() {
+            his.$router.push({name: 'users'})
+            this.$store.dispatch('setToken', null)
+            this.$store.dispatch('setUser', null)
+            this.$router.push({
+                name: 'login'
+            })
+        },
         navigateTo(route) {
             this.$router.push(route)
         },
@@ -43,8 +53,8 @@ export default {
             }
         },
         async refreshData() {
-        this.users = (await UsersService.index()).data;
-    }
+            this.users = (await UsersService.index()).data;
+        }
 
     },
 
@@ -60,4 +70,8 @@ export default {
 };
 </script>
   
-<style></style>
+<style scoped>
+.error {
+    color: red;
+}
+</style>
