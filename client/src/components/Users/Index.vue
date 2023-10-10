@@ -31,7 +31,6 @@ export default {
     methods: {
 
         logout() {
-            his.$router.push({name: 'users'})
             this.$store.dispatch('setToken', null)
             this.$store.dispatch('setUser', null)
             this.$router.push({
